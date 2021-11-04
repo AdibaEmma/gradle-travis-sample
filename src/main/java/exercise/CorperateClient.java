@@ -3,8 +3,9 @@ package exercise;
 public class CorperateClient extends  Client {
     private AccountManager accountManager;
 
-    public CorperateClient(String clientID, String name, ClientType clientType, ServiceLevel serviceLevel) {
+    public CorperateClient(String clientID, String name, ClientType clientType, ServiceLevel serviceLevel, AccountManager accountManager) {
         super(clientID, name, clientType, serviceLevel);
+        this.accountManager = accountManager;
     }
 
     @Override
