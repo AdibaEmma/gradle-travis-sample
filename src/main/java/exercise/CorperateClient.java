@@ -20,6 +20,26 @@ public class CorperateClient extends  Client {
         return accountManager.getName();
     }
 
+
+    @Override
+    public String getClientID() {
+        return clientID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public ClientType getClientType() {
+        return clientType;
+    }
+
+    @Override
+    public ServiceLevel getServiceLevel() {
+        return serviceLevel;
+    }
+
     @Override
     public String toString() {
         return "CorporateClient{" +

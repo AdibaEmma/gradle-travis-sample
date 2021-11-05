@@ -20,6 +20,25 @@ public class PrivateClient extends Client {
     }
 
     @Override
+    public String getClientID() {
+        return clientID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public ClientType getClientType() {
+        return clientType;
+    }
+
+    @Override
+    public ServiceLevel getServiceLevel() {
+        return serviceLevel;
+    }
+
+    @Override
     public String toString() {
         return "PrivateClient{" +
                 "clientID='" + clientID + '\'' +

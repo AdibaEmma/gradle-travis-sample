@@ -1,6 +1,8 @@
 package exercise;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class ClientRegister {
@@ -23,9 +25,12 @@ public class ClientRegister {
                 .collect(Collectors.toList());
     }
 
-//    public List<String> getClientById(String id) throws ClientNotFoundException {
-////        Boolean clientExists = el
-//    }
+    public Optional<Client> getClientById(String id) {
+        return clientList.stream()
+                .filter(c -> c.getClientID().equals(id))
+                .findFirst();
+    }
+
     @Override
     public String toString() {
         return "ClientRegister{" +
