@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ClientRegisterTest {
 
     @Test
-    void Test() {
+    void getClientList() {
         AccountManager accountManager1 = new AccountManager("Timmy");
         AccountManager accountManager2 = new AccountManager("Ben");
         AccountManager accountManager3 = new AccountManager("Carl");
@@ -23,6 +23,12 @@ class ClientRegisterTest {
         clientList.add( new CorperateClient("P012", "Bryte Tunner",ClientType.CORPORATE, ServiceLevel.GOLD, accountManager2));
         clientList.add( new CorperateClient("P012", "Mike K",ClientType.CORPORATE, ServiceLevel.PREMIUM, accountManager3));
 
-        assertEquals("Timmy", clientList.get(4).getContactName());
+        ClientRegister clientRegister = new ClientRegister(clientList);
+        assertTrue(clientRegister.getClientList().contains("Ben"));
+    }
+
+    @Test
+    void getGoldClients() {
+
     }
 }

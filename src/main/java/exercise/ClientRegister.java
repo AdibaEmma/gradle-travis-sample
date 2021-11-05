@@ -16,12 +16,16 @@ public class ClientRegister {
                 .collect(Collectors.toList());
     }
 
-    public List<Client> getGoldClients() {
+    public List<String> getGoldClients() {
         return clientList.stream()
                 .filter(c -> c.getServiceLevel() == ServiceLevel.GOLD)
+                .map(Client::getContactName)
                 .collect(Collectors.toList());
     }
 
+//    public List<String> getClientById(String id) throws ClientNotFoundException {
+////        Boolean clientExists = el
+//    }
     @Override
     public String toString() {
         return "ClientRegister{" +

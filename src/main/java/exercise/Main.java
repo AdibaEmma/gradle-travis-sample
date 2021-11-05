@@ -21,5 +21,6 @@ public class Main {
         ClientRegister clientRegister = new ClientRegister(clientList);
 
         System.out.println(clientRegister.getClientList());
+        System.out.println(clientRegister.getGoldClients());
     }
 }
