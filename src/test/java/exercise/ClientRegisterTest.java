@@ -1,29 +1,28 @@
 package exercise;
 
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class ClientRegisterTest {
 
     @Test
-    void getClientList() {
-
+    void Test() {
         AccountManager accountManager1 = new AccountManager("Timmy");
-        AccountManager accountManager2 = new AccountManager("Timmy");
-        AccountManager accountManager3 = new AccountManager("Timmy");
+        AccountManager accountManager2 = new AccountManager("Ben");
+        AccountManager accountManager3 = new AccountManager("Carl");
 
-        var newClientList = List.of(
-                new PrivateClient("P012", "Israel Vanderpuije",ClientType.PRIVATE, ServiceLevel.PLATINUM),
-                new PrivateClient("P012", "Israel Vanderpuije",ClientType.PRIVATE, ServiceLevel.GOLD),
-                new PrivateClient("P012", "Israel Vanderpuije",ClientType.PRIVATE, ServiceLevel.PREMIUM),
-                new CorperateClient("P012", "Israel Vanderpuije",ClientType.CORPORATE, ServiceLevel.PLATINUM, accountManager1),
-                new CorperateClient("P012", "Israel Vanderpuije",ClientType.CORPORATE, ServiceLevel.GOLD, accountManager2),
-                new CorperateClient("P012", "Israel Vanderpuije",ClientType.CORPORATE, ServiceLevel.PREMIUM, accountManager3)
-        );
+        List<Client> clientList = new ArrayList<>();
+        clientList.add( new PrivateClient("P012", "Israel Vanderpuije",ClientType.PRIVATE, ServiceLevel.PLATINUM));
+        clientList.add( new PrivateClient("P012", "Kyle Fitch",ClientType.PRIVATE, ServiceLevel.GOLD));
+        clientList.add( new PrivateClient("P012", "John Doe",ClientType.PRIVATE, ServiceLevel.PREMIUM));
+        clientList.add(  new CorperateClient("P012", "Osborn Kit",ClientType.CORPORATE, ServiceLevel.PLATINUM, accountManager1));
+        clientList.add( new CorperateClient("P012", "Bryte Tunner",ClientType.CORPORATE, ServiceLevel.GOLD, accountManager2));
+        clientList.add( new CorperateClient("P012", "Mike K",ClientType.CORPORATE, ServiceLevel.PREMIUM, accountManager3));
 
-
+        assertEquals("Timmy", clientList.get(4).getContactName());
     }
-
 }

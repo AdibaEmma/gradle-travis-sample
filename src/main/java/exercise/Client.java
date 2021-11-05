@@ -1,21 +1,12 @@
 package exercise;
 
-public class Client {
+public abstract class Client {
     private String clientID;
     private String name;
     private ClientType clientType;
     private ServiceLevel serviceLevel;
-
-    public Client(String clientID, String name, ClientType clientType, ServiceLevel serviceLevel) {
-        this.clientID = clientID;
-        this.name = name;
-        this.clientType = clientType;
-        this.serviceLevel = serviceLevel;
-    }
-
-    public String getContactName() {
-        return this.name;
-    }
+    
+    abstract String getContactName();
 
     public String getClientID() {
         return clientID;
@@ -23,10 +14,6 @@ public class Client {
 
     public void setClientID(String clientID) {
         this.clientID = clientID;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public void setName(String name) {
@@ -49,13 +36,4 @@ public class Client {
         this.serviceLevel = serviceLevel;
     }
 
-    @Override
-    public String toString() {
-        return "Client{" +
-                "clientID='" + clientID + '\'' +
-                ", name='" + name + '\'' +
-                ", clientType=" + clientType +
-                ", serviceLevel=" + serviceLevel +
-                '}';
-    }
 }
