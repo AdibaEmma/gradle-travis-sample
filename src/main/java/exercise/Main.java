@@ -24,6 +24,6 @@ public class Main {
         System.out.println(clientRegister.getClientList());
         System.out.println(clientRegister.getGoldClients());
         System.out.println(clientRegister.getClientById("111"));
-        System.out.println(clientRegister.getClientByServiceLevelCount(ServiceLevel.GOLD));
+        System.out.println(clientRegister.getClientCountAtEachServiceLevel());
     }
 }

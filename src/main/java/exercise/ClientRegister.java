@@ -24,17 +24,27 @@ public class ClientRegister {
                 .collect(Collectors.toList());
     }
 
+    public List<String> getPlatinumClients() {
+        return clientList.stream()
+                .filter(c -> c.getServiceLevel() == ServiceLevel.PLATINUM)
+                .map(Client::getContactName)
+                .collect(Collectors.toList());
+    }
+    public List<String> getPremiumClients() {
+        return clientList.stream()
+                .filter(c -> c.getServiceLevel() == ServiceLevel.PREMIUM)
+                .map(Client::getContactName)
+                .collect(Collectors.toList());
+    }
     public Optional<Client> getClientById(String id) {
         return clientList.stream()
                 .filter(c -> c.getClientID().equals(id))
                 .findFirst();
     }
 
-    public String getClientByServiceLevelCount(ServiceLevel serviceLevel) {
-        int count = (int) clientList.stream()
-                .filter(c -> c.getServiceLevel().equals(serviceLevel)).count();
 
-        return "There are " + count + " with " + serviceLevel + " service level";
+    public String getClientCountAtEachServiceLevel() {
+        return "There are " + getGoldClients().size() + " Gold client(s), " + getPlatinumClients().size() + " Platinum client(s),and " + getPremiumClients().size() + " Premium clients";
 
     }
 
