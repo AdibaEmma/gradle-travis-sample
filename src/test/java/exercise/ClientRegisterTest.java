@@ -48,7 +48,7 @@ class ClientRegisterTest {
     @Test
     public void getClientCountAtEachServiceLevel() {
         ClientRegister clientRegister = new ClientRegister(createClientList());
-        assertEquals(2, (long) clientRegister.getGoldClients().size());
+        assertEquals(2, clientRegister.getClientCountAtEachServiceLevel().get(ServiceLevel.GOLD));
     }
 
 

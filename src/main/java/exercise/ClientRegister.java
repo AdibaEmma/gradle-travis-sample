@@ -1,6 +1,8 @@
 package exercise;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -43,8 +45,12 @@ public class ClientRegister {
     }
 
 
-    public String getClientCountAtEachServiceLevel() {
-        return "There are " + getGoldClients().size() + " Gold client(s), " + getPlatinumClients().size() + " Platinum client(s),and " + getPremiumClients().size() + " Premium clients";
+    public Map<ServiceLevel, Integer> getClientCountAtEachServiceLevel() {
+        Map<ServiceLevel, Integer> clientListByServiceLevel = new HashMap<>();
+        clientListByServiceLevel.put(ServiceLevel.GOLD, getGoldClients().size());
+        clientListByServiceLevel.put(ServiceLevel.PLATINUM, getPlatinumClients().size());
+        clientListByServiceLevel.put(ServiceLevel.PREMIUM, getPremiumClients().size());
+        return clientListByServiceLevel;
 
     }
 
