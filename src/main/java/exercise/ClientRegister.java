@@ -1,7 +1,6 @@
 package exercise;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -29,6 +28,14 @@ public class ClientRegister {
         return clientList.stream()
                 .filter(c -> c.getClientID().equals(id))
                 .findFirst();
+    }
+
+    public String getClientByServiceLevelCount(ServiceLevel serviceLevel) {
+        int count = (int) clientList.stream()
+                .filter(c -> c.getServiceLevel().equals(serviceLevel)).count();
+
+        return "There are " + count + " with " + serviceLevel + " service level";
+
     }
 
     @Override

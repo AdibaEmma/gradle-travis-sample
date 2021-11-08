@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClientNotFoundException {
 
         AccountManager accountManager1 = new AccountManager("Timmy");
         AccountManager accountManager2 = new AccountManager("Ben");
@@ -17,11 +17,13 @@ public class Main {
         clientList.add(  new CorperateClient("P015", "Osborn Kit",ClientType.CORPORATE, ServiceLevel.PLATINUM, accountManager1));
         clientList.add( new CorperateClient("P016", "Bryte Tunner",ClientType.CORPORATE, ServiceLevel.GOLD, accountManager2));
         clientList.add( new CorperateClient("P017", "Mike K",ClientType.CORPORATE, ServiceLevel.PREMIUM, accountManager3));
+        clientList.add( new CorperateClient("P021", "Arnold T",ClientType.CORPORATE, ServiceLevel.GOLD, accountManager3));
 
         ClientRegister clientRegister = new ClientRegister(clientList);
 
         System.out.println(clientRegister.getClientList());
         System.out.println(clientRegister.getGoldClients());
-        System.out.println(clientRegister.getClientById("P012"));
+        System.out.println(clientRegister.getClientById("111"));
+        System.out.println(clientRegister.getClientByServiceLevelCount(ServiceLevel.GOLD));
     }
 }
